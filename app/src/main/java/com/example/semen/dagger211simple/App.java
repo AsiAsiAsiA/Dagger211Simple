@@ -3,6 +3,8 @@ package com.example.semen.dagger211simple;
 import android.app.Activity;
 import android.app.Application;
 
+import com.example.semen.dagger211simple.di.DaggerAppComponent;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
@@ -16,8 +18,7 @@ public class App extends Application implements HasActivityInjector {
     @Override
     public void onCreate() {
         super.onCreate();
-        DaggerAppComponent.builder()
-                .create(this)
+        DaggerAppComponent.create()
                 .inject(this);
     }
 
